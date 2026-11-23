@@ -1,8 +1,8 @@
 # One Letter for Your Day
 
-[![make.fun](https://img.shields.io/badge/make.fun-bounty-blue)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36)
-[![make.fun](https://img.shields.io/badge/entry-free-brightgreen)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36)
-[![make.fun](https://img.shields.io/badge/letter-O-orange)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36)
+[![make.fun · u-puan-one-letter-for-your-day-e54e9c36](https://make.fun/badge/u-puan-one-letter-for-your-day-e54e9c36.svg)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36?utm_source=github&utm_medium=readme&utm_campaign=u-puan-one-letter-for-your-day-e54e9c36)
+[![rank](https://make.fun/badge/u-puan-one-letter-for-your-day-e54e9c36/Shayidinadapa/one-letter-day-puan-01/rank.svg)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-puan-one-letter-for-your-day-e54e9c36)
+[![reward](https://make.fun/badge/u-puan-one-letter-for-your-day-e54e9c36/Shayidinadapa/one-letter-day-puan-01/reward.svg)](https://make.fun/bounty/u-puan-one-letter-for-your-day-e54e9c36?utm_source=github&utm_medium=readme&utm_campaign=u-puan-one-letter-for-your-day-e54e9c36)
 
 A make.fun bounty entry that sends exactly one character: a single letter,
 A–Z, standing for the word that describes the day.
