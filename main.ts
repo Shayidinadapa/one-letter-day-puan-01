@@ -5,11 +5,14 @@
 // rated speed all night, still shipping bounty entries at 5am.
 //
 // Usage:
-//   node main.ts                 # writes "O" to ./entry.txt
-//   OUTPUT_DIR=/output node main.ts   # writes "O" to $OUTPUT_DIR/entry.txt
+//   node main.ts                                  # writes "O" to /output/entry.txt
+//   MAKEFUN_OUTPUT_DIR=/tmp/out node main.ts      # writes "O" to $MAKEFUN_OUTPUT_DIR/entry.txt
+//   OUTPUT_DIR=/tmp/out node main.ts              # same via OUTPUT_DIR
 //
-// The harness (program/v1) runs this with OUTPUT_DIR=/output and reads
-// /output/entry.txt, which must be UTF-8 text of exactly 1 character.
+// The harness (program/v1) runs this with MAKEFUN_OUTPUT_DIR=/output
+// and reads /output/entry.txt, which must be UTF-8 text of exactly
+// 1 character. The repository is mounted read-only in the grader,
+// so the program must never write into its own directory.
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -51,8 +54,21 @@ function writeLetter(outDir: string, letter: string): string {
   return outPath;
 }
 
+// Resolve the output directory the way the program/v1 harness runs
+// it: MAKEFUN_OUTPUT_DIR first (what the grader sets, /output),
+// then OUTPUT_DIR for local runs, then /output. An empty or
+// whitespace-only value counts as unset — never default to ".",
+// because the grader mounts the repository read-only.
+function resolveOutDir(): string {
+  for (const name of ["MAKEFUN_OUTPUT_DIR", "OUTPUT_DIR"]) {
+    const raw = process.env[name];
+    if (raw !== undefined && raw.trim() !== "") return raw;
+  }
+  return "/output";
+}
+
 validateLetter(LETTER);
-const outPath = writeLetter(process.env.OUTPUT_DIR ?? ".", LETTER);
+const outPath = writeLetter(resolveOutDir(), LETTER);
 
 // Echo the letter to stdout so a local run shows exactly what was written.
 process.stdout.write(LETTER);
